@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гадальный шар</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .ball-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            display: none;
+        }
+        .result img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://media1.tenor.com/m/Yj2OtmSAQ9MAAAAC/jagyasini-singh-jagyasini.gif" alt="Гадальный шар" class="ball-image">
+        <button class="button" onclick="showResult()">Узнать кто самый красивый</button>
+        <div class="result" id="result">
+            <img src="https://via.placeholder.com/150" alt="Самый красивый человек">
+            <p style="color: white;" id="name">Имя человека</p>
+        </div>
+    </div>
+
+    <script>
+        function showResult() {
+            const resultDiv = document.getElementById('result');
+            const nameElement = document.getElementById('name');
+
+            // Пример данных для отображения
+            const people = [
+                { name: "Катюшка", image: "./8838b598-013b-4e8c-b462-8afd018f2081.jfif" },
+            ];
+
+            // Выбираем случайного человека
+            const randomPerson = people[Math.floor(Math.random() * people.length)];
+
+            // Обновляем данные
+            resultDiv.querySelector('img').src = randomPerson.image;
+            nameElement.textContent = randomPerson.name;
+
+            // Показываем результат
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
